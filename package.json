@@ -5,7 +5,7 @@
   "main": "js/src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "grunt",
+    "build": "grunt && node scripts/getCentroids.js",
     "watch": "grunt watch"
   },
   "repository": {
@@ -31,6 +31,7 @@
   },
   "tribune": {},
   "dependencies": {
+    "@turf/turf": "^3.5.3",
     "d3": "^4.3.0"
   }
 }
