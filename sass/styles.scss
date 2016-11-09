@@ -1,0 +1,28 @@
+@import 'base-variables';
+@import 'base-mixins';
+
+
+.maps{
+	display: flex;
+	flex:1;
+	justify-content:space-between;
+	flex-wrap:wrap;
+}
+
+.map{
+	width:30%;
+	margin: 0 0 25px 0
+}
+
+.map__container{
+	background:$trib-gray4;
+	height:400px;
+}
+
+.map__label{
+	@include label7();
+}
+
+.trb_mainContent .credits-sources p{
+	@include agate();
+}
