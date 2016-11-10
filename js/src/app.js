@@ -55,9 +55,14 @@ function drawMap(dataSelection, data, map){
 			.scale(s)
 			.translate(t);
 
-
+		// These three <g> elements are created here so that they layer in the proper order.
+		// I want the circles to be on top of the borders on top of the counties.
+		
 		demoMap.append('g')
 			.classed('counties', true)
+
+		demoMap.append('g')
+			.classed('state-boundaries', true)
 
 		demoMap.append('g')
 			.classed('circles', true);
@@ -83,10 +88,26 @@ function drawMap(dataSelection, data, map){
 							.attr('r',r(stat))
 							.style('fill', getFill(winner));
 					})
+		demoMap.select('.state-boundaries')
+			.selectAll('path')
+			.data(window.STATE_BOUNDARIES.features)
+			.enter()
+				.append('path')
+					.style('fill', 'transparent')
+					.style('stroke', '#222')
+					.style('stroke-width', 1)
+					.attr( "d", midwestGeoPath)
+
+
+
 
 }
 
 window.onload = function(){
+	d3.json(`http://${window.ROOT_URL}/data/state-boundaries.geojson`, data => {
+		window.STATE_BOUNDARIES = data;
+	})
+
 	d3.json(`http://${window.ROOT_URL}/data/test-with-centroid.geojson`, (data) => {
 		console.log(data);
 		document.querySelectorAll('.map').forEach((map, idx)=>{
