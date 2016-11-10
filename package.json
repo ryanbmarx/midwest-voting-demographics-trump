@@ -32,6 +32,7 @@
   "tribune": {},
   "dependencies": {
     "@turf/turf": "^3.5.3",
-    "d3": "^4.3.0"
+    "d3": "^4.3.0",
+    "underscore": "^1.8.3"
   }
 }

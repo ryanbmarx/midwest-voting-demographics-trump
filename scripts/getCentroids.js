@@ -2,7 +2,7 @@ var turf = require('@turf/turf');
 var fs = require('fs');
 
 
-fs.readFile(`./data/test.geojson`, 'utf8', (err, data) => {
+fs.readFile(`./data/midwest.geojson`, 'utf8', (err, data) => {
 	if (err) throw err;
 	const jsonData = JSON.parse(data);
 
@@ -15,7 +15,7 @@ fs.readFile(`./data/test.geojson`, 'utf8', (err, data) => {
 	
 	// console.log(jsonData.features[0]);
 
-	fs.writeFile(`./data/test-with-centroid.geojson`, JSON.stringify(jsonData), (err) => {
+	fs.writeFile(`./data/midwest-with-centroid.geojson`, JSON.stringify(jsonData), (err) => {
 		if(err) {
 			return console.log(err.red.inverse);
 		} else {
