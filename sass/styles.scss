@@ -10,13 +10,15 @@
 }
 
 .map{
-	width:48%;
+	width:49%;
 	margin: 0 0 25px 0
 }
 
 .map__container{
 	// background:$trib-gray4;
-	height:400px;
+    height: 0;
+    border: 1px solid black;
+    padding-bottom: 124%;
 }
 
 .map__label{
@@ -25,4 +27,12 @@
 
 .trb_mainContent .credits-sources p{
 	@include agate();
+}
+
+@media all and (max-width: 650px){
+
+	.map{
+		width: 100%;
+	}
+
 }

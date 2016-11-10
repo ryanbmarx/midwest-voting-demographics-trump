@@ -4,11 +4,18 @@
 <section class='intro'>
 	{{ intro|markdown }}
 </section>
-<section class='maps'>
-	{% for map in maps %}
-		<div class='map map--{{ map.map_data }}' data-map="{{ map.map_data }}">
-			<h2 class='map__label'>{{ map.label }}</h2>
-			<div class='map__container'></div>
+<section class='mapss'>
+	{% for topic in maps if topic.publish > 0 %}
+		<h2 class='map__label'>{{ topic.label }}</h2>
+		{{ topic.blurb|markdown }}
+		
+
+		<div class='maps'>
+			{% for map in topic.map_data|commas_as_array %}
+				<div class='map map--{{ map }}' data-map="{{ map }}" data-type={{ topic.map_data_type }}>
+					<div class='map__container'></div>
+				</div>
+			{% endfor %}
 		</div>
 	{% endfor %}
 </section>
