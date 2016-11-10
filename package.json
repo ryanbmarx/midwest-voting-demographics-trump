@@ -5,7 +5,7 @@
   "main": "js/src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "grunt && node scripts/getCentroids.js",
+    "build": "grunt && node scripts/appendDataToGeojson.js",
     "watch": "grunt watch"
   },
   "repository": {
