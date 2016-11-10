@@ -7,9 +7,12 @@ function getFill(winner){
 }
 
 function drawMap(dataSelection, data, map){
-	console.log(`drawing map of ${dataSelection}`);
+	console.log(`drawing map of ${dataSelection}`, data);
 
-	const circleScale = '';
+	// Define scale ... use SQRT b/c these are circles and it is their AREA which must scale, not the r
+	const r = d3.scaleSqrt() 
+		.domain([0, d3.max(data.features, d => d['properties'][dataSelection])])
+		.range([0, 20]); 
 
 	// Draw boundaries
 
@@ -72,11 +75,12 @@ function drawMap(dataSelection, data, map){
 					.each((d)=>{
 						let centroid = d.properties.centroid_coordinates;
 						let winner = d.properties.voting_clinton_trump;
+						let stat = d.properties[dataSelection];
 						demoMap.select('.circles')
 							.append('circle')
 							.attr('cx', projection(centroid)[0])
 							.attr('cy', projection(centroid)[1])
-							.attr('r',10)
+							.attr('r',r(stat))
 							.style('fill', getFill(winner));
 					})
 
