@@ -4,6 +4,17 @@
 Tarbell project configuration
 """
 
+from flask import Blueprint, g
+import datetime
+import xlrd.xldate
+import re
+
+blueprint = Blueprint('midwest-voting-demographics', __name__)
+
+@blueprint.app_template_filter('commas_as_array')
+def format_comma_list_as_array(list):
+	return list.replace(' ', '').split(',')
+
 # Google spreadsheet key
 SPREADSHEET_KEY = "1ciL2GhA7enyXOkIVO6ZCIlR_ORn2Klaegt5EicHoYbs"
 
