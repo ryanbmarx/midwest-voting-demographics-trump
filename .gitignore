@@ -10,3 +10,4 @@ css
 js/*.js
 js/*.map 
 .DS_Store
+test-with-centroid.geojson
