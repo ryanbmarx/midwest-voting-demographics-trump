@@ -4,18 +4,38 @@
 <section class='intro'>
 	{{ intro|markdown }}
 </section>
-<section class='mapss'>
-	{% for topic in maps if topic.publish > 0 %}
-		<h2 class='map__label'>{{ topic.label }}</h2>
-		{{ topic.blurb|markdown }}
-		
+<section class='topics'>
+	{%- for topic in maps if topic.publish > 0 -%}
+		{% set maps = topic.map_data|commas_as_array %}
+		{% if maps|length == 1 %}
+			{% set mapwide = "map--wide"%}
+		{% endif %}
 
-		<div class='maps'>
-			{% for map in topic.map_data|commas_as_array %}
-				<div class='map map--{{ map }}' data-map="{{ map }}" data-type={{ topic.map_data_type }}>
-					<div class='map__container'></div>
-				</div>
-			{% endfor %}
+		<div class='topic'>
+			<h2 class='topic__label'>{{ topic.label }}</h2>
+			{{ topic.blurb|markdown }}
+			<div class='maps'>
+				{%- for map in maps -%}
+					<div class='map map--{{ map }} {{ mapwide }}' data-map="{{ map }}" data-type={{ topic.map_data_type }}>
+						<h3 class='map__label'>{{ map_labels[map]['label'] }}</h3>
+						<dl class='map__legend'>
+							<dt>
+								<span class='legend-box legend-box--clinton'></span>
+							</dt>
+							<dd>
+								Majority in county voted for Clinton
+							</dd>
+							<dt>
+				                <span class='legend-box legend-box--trump'></span>
+							</dt>
+							<dd>
+								Majority in county voted for Trump
+							</dd>
+						</dl>
+						<div class='map__container'></div>
+					</div>
+				{% endfor %}
+			</div>
 		</div>
 	{% endfor %}
 </section>

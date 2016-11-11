@@ -1,4 +1,7 @@
 @import 'base-variables';
+$republican_color:$trib_red2;
+$democrat_color:$trib_blue2;
+
 @import 'base-mixins';
 
 
@@ -11,7 +14,7 @@
 
 .map{
 	width:49%;
-	margin: 0 0 25px 0
+	margin: 0 0 25px 0;
 }
 
 .map__container{
@@ -21,9 +24,44 @@
     padding-bottom: 124%;
 }
 
+.topic__label{
+	@include label4();
+}
+
 .map__label{
 	@include label7();
 }
+
+
+.map.map--wide {
+	width:100%;
+	.map__label{
+		text-align: center;
+	}
+	.map__legend{
+	    text-align: center;
+	}
+	.map__container{
+		height: 600px;
+		padding-bottom:0;
+	}
+}
+
+.trb_mainContent .map__legend{
+	@include trib_legend();
+	@include trib_legend--inline();
+
+	.legend-box--clinton{
+		@include trib-legend__box('circle');
+		background:rgba($democrat_color,.25);
+	}
+	.legend-box--trump{
+		@include trib-legend__box('circle');
+		background:rgba($republican_color,.25)
+	}
+}
+
+
 
 .trb_mainContent .credits-sources p{
 	@include agate();
