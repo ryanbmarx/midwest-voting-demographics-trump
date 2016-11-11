@@ -9,9 +9,16 @@ $democrat_color:$trib_blue2;
 	margin:0 auto
 }
 
-.states-chart{
+.trb_mainContent .states-chart{
 	@include trib-chart();
+	
+	&__label{
+		@include label6();
+		text-align:center;
+	}
 }
+
+
 
 .maps{
 	display: flex;
