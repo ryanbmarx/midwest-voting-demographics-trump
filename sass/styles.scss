@@ -4,6 +4,10 @@ $democrat_color:$trib_blue2;
 
 @import 'base-mixins';
 
+.graphic-wrapper{
+	max-width: 700px;
+	margin:0 auto
+}
 
 .maps{
 	display: flex;
@@ -20,7 +24,6 @@ $democrat_color:$trib_blue2;
 .map__container{
 	// background:$trib-gray4;
     height: 0;
-    border: 1px solid black;
     padding-bottom: 124%;
 }
 
@@ -39,7 +42,9 @@ $democrat_color:$trib_blue2;
 		text-align: center;
 	}
 	.map__legend{
-	    text-align: center;
+	    text-align: left;
+		max-width: 268px;
+		margin: auto;
 	}
 	.map__container{
 		height: 600px;
@@ -49,7 +54,6 @@ $democrat_color:$trib_blue2;
 
 .trb_mainContent .map__legend{
 	@include trib_legend();
-	@include trib_legend--inline();
 
 	.legend-box--clinton{
 		@include trib-legend__box('circle');

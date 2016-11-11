@@ -3,7 +3,7 @@ import * as d3 from "d3";
 
 function getFill(winner){
 	const opacity = .25
-	return winner == "trump" ? `rgba(255, 0, 0, ${opacity})` : `rgba(0, 0, 255, ${opacity})`;
+	return winner == "trump" ? `rgba(193,27,23, ${opacity})` : `rgba(0,78,135, ${opacity * 1.2 })`;
 }
 
 function drawMap(dataSelection, data, map, dataType){
@@ -87,11 +87,11 @@ function drawMap(dataSelection, data, map, dataType){
 						return '#e0e0e0';
 						return getFill(winner);
 					})
-					.style('stroke', '#ffffff')
+					.style('stroke', '#e0e0e0')
 					.style('stroke-width', 1)
 					.attr( "d", midwestGeoPath)
 					.each((d)=>{
-						let centroid = d.properties.centroid_coordinates;
+						let centroid = [d.properties.centroid_x, d.properties.centroid_y];
 						let winner = d.properties.clinton_trump;
 						let stat = d.properties[dataSelection];
 						demoMap.select('.circles')
@@ -113,7 +113,7 @@ function drawMap(dataSelection, data, map, dataType){
 			.enter()
 				.append('path')
 					.style('fill', 'transparent')
-					.style('stroke', '#222')
+					.style('stroke', '#888')
 					.style('stroke-width', 1)
 					.attr( "d", midwestGeoPath)
 
