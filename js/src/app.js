@@ -87,7 +87,7 @@ function drawMap(dataSelection, data, map, dataType){
 						return '#e0e0e0';
 						return getFill(winner);
 					})
-					.style('stroke', '#e0e0e0')
+					.style('stroke', '#ccc')
 					.style('stroke-width', 1)
 					.attr( "d", midwestGeoPath)
 					.each((d)=>{
