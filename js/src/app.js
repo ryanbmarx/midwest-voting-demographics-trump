@@ -79,17 +79,17 @@ function drawMap(dataSelection, data, map, dataType){
 			.selectAll( "path" )
 			.data(data.features)
 			.enter()
-				.append( "path" )
-					.classed('midwest-map', true)
-					.style('fill', function(d){
-						let winner = d.properties.clinton_trump;
-						// console.log(winner);
-						return '#e0e0e0';
-						return getFill(winner);
-					})
-					.style('stroke', '#ccc')
-					.style('stroke-width', 1)
-					.attr( "d", midwestGeoPath)
+				// .append( "path" )
+				// 	.classed('midwest-map', true)
+				// 	.style('fill', function(d){
+				// 		let winner = d.properties.clinton_trump;
+				// 		// console.log(winner);
+				// 		return '#e0e0e0';
+				// 		return getFill(winner);
+				// 	})
+				// 	.style('stroke', '#ccc')
+				// 	.style('stroke-width', 1)
+				// 	.attr( "d", midwestGeoPath)
 					.each((d)=>{
 						let centroid = [d.properties.centroid_x, d.properties.centroid_y];
 						let winner = d.properties.clinton_trump;
@@ -112,7 +112,7 @@ function drawMap(dataSelection, data, map, dataType){
 			.data(window.STATE_BOUNDARIES.features)
 			.enter()
 				.append('path')
-					.style('fill', 'transparent')
+					.style('fill', '#eee')
 					.style('stroke', '#888')
 					.style('stroke-width', 1)
 					.attr( "d", midwestGeoPath)
