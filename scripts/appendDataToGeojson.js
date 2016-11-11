@@ -53,7 +53,7 @@ fs.readFile(`./data/voting - alldata.csv`, 'utf8', (err, data) => {
 		// For each feature in the geojson (state, county, etc.), do this ...
 		jsonData.features.forEach((feature, feature_idx) => {
 			// first calc centroid and load it in.
-			feature.properties.centroid_coordinates = getCentroids(feature);
+			// feature.properties.centroid_coordinates = getCentroids(feature);
 			// then filter the list of data to just the matching fips
 			var filteredDataToAppend = _.filter(dataToAppend, function(feature_obj){
 				return feature_obj.fips == feature.properties.GEOID;
