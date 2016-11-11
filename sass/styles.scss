@@ -55,6 +55,12 @@ $democrat_color:$trib_blue2;
 .trb_mainContent .map__legend{
 	@include trib_legend();
 
+
+	dd, dt{
+	    line-height: 1.0em;
+	    margin-bottom: 7px;
+	}
+
 	.legend-box--clinton{
 		@include trib-legend__box('circle');
 		background:rgba($democrat_color,.25);
