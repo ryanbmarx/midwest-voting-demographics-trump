@@ -4,6 +4,14 @@
 <div class='graphic-wrapper'>
 	<section class='intro'>
 		{{ intro|markdown }}
+		<figure class='states-chart'>
+			<figcaption>
+				<p class='label6'>XXXXX</p>
+			</figcaption>
+			{% include 'ai/ai2html-output/state-compare.html' %}
+		</figure>
+
+
 	</section>
 	<section class='topics'>
 		{%- for topic in maps if topic.publish > 0 -%}
@@ -51,6 +59,7 @@
 {% block library_scripts %}
 {# Uncomment this if you are using libraries such as jQuery #}
 <script src="//{{ ROOT_URL }}/js/vendor.min.js"></script>
+<script src="//{{ ROOT_URL }}/js/resizer.js"></script>
 {% endblock %}
 
 {% block scripts %}
