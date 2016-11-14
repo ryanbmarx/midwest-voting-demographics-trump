@@ -16,9 +16,14 @@ $democrat_color:$trib_blue2;
 		@include label6();
 		text-align:center;
 	}
+
+
 }
 
-
+.chartsub {
+	text-align:center;
+	font-style:italic;
+}
 
 .maps{
 	display: flex;
