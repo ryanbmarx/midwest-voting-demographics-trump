@@ -87,7 +87,9 @@ $democrat_color:$trib_blue2;
 	}
 }
 
-
+.map_image img{
+	width:100%;
+}
 
 .trb_mainContent .credits-sources p{
 	@include agate();
